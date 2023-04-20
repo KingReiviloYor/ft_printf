@@ -1,44 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_puthex_fd.c                                     :+:      :+:    :+:   */
+/*   ft_putptr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oroy <oroy@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 20:14:57 by oroy              #+#    #+#             */
-/*   Updated: 2023/04/19 21:35:27 by oroy             ###   ########.fr       */
+/*   Updated: 2023/04/19 21:35:39 by oroy             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static char	convert_char(unsigned int n, char c)
+int	ft_putptr_fd(unsigned long n, char c, int fd)
 {
-	if (n < 10)
-		return (n + 48);
-	else
-	{
-		if (c == 'X')
-			return (n + 55);
-		else
-			return (n + 87);
-	}
-}
+	int	rtn_value;
 
-int	ft_puthex_fd(unsigned long n, char c, int fd)
-{
-	int	putchar_rtn;
-	int	puthex_rtn;
-
-	puthex_rtn = 0;
-	if (n / 16 != 0)
+	rtn_value = ft_putstr_rtn_fd("0x", 1);
+	if (rtn_value > -1)
 	{
-		puthex_rtn = ft_puthex_fd(n / 16, c, fd);
-		if (puthex_rtn == -1)
-			return (-1);
+		rtn_value += ft_puthex_fd(n, c, fd);
+		if (rtn_value < 2)
+			rtn_value = -1;
 	}
-	putchar_rtn = ft_putchar_rtn_fd(convert_char(n % 16, c), fd);
-	if (putchar_rtn == -1)
-		return (-1);
-	return (puthex_rtn + putchar_rtn);
+	return (rtn_value);
 }
