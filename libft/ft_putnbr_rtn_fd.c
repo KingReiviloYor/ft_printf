@@ -1,20 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_rtn_fd.c                                 :+:      :+:    :+:   */
+/*   ft_putnbr_rtn_fd.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oroy <oroy@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/22 14:19:50 by oroy              #+#    #+#             */
-/*   Updated: 2023/04/20 14:55:52 by oroy             ###   ########.fr       */
+/*   Created: 2023/02/22 14:51:59 by oroy              #+#    #+#             */
+/*   Updated: 2023/04/25 12:26:44 by oroy             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_putstr_rtn_fd(char *s, int fd)
+int	ft_putnbr_rtn_fd(long n, int fd)
 {
-	if (!s)
-		return (0);
-	return (write (fd, s, ft_strlen(s)));
+	int	nbr;
+
+	nbr = 0;
+	if (n < 0)
+	{
+		nbr = ft_putchar_rtn_fd('-', fd);
+		if (nbr == -1)
+			return (-1);
+		n = -n;
+	}
+	if (n / 10 != 0)
+	{
+		nbr = ft_add(ft_putnbr_rtn_fd(n / 10, fd), nbr);
+		if (nbr == -1)
+			return (-1);
+	}
+	return (ft_add(ft_putchar_rtn_fd(n % 10 + 48, fd), nbr));
 }

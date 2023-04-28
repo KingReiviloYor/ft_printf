@@ -1,20 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_rtn_fd.c                                 :+:      :+:    :+:   */
+/*   ft_puthex_rtn_fd.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oroy <oroy@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/22 14:19:50 by oroy              #+#    #+#             */
-/*   Updated: 2023/04/20 14:55:52 by oroy             ###   ########.fr       */
+/*   Created: 2023/04/17 20:14:57 by oroy              #+#    #+#             */
+/*   Updated: 2023/04/25 12:26:08 by oroy             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_putstr_rtn_fd(char *s, int fd)
+static char	convert_char(unsigned int n, char c)
 {
-	if (!s)
-		return (0);
-	return (write (fd, s, ft_strlen(s)));
+	if (n < 10)
+		return (n + 48);
+	else
+	{
+		if (c == 'X')
+			return (n + 55);
+		else
+			return (n + 87);
+	}
+}
+
+int	ft_puthex_rtn_fd(unsigned long n, char c, int fd)
+{
+	int	nbr;
+
+	nbr = 0;
+	if (n / 16 != 0)
+	{
+		nbr = ft_puthex_rtn_fd(n / 16, c, fd);
+		if (nbr == -1)
+			return (-1);
+	}
+	return (ft_add(ft_putchar_rtn_fd(convert_char(n % 16, c), fd), nbr));
 }

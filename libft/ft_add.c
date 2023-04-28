@@ -1,20 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_rtn_fd.c                                 :+:      :+:    :+:   */
+/*   ft_add.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oroy <oroy@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/22 14:19:50 by oroy              #+#    #+#             */
-/*   Updated: 2023/04/20 14:55:52 by oroy             ###   ########.fr       */
+/*   Created: 2023/04/24 16:58:52 by oroy              #+#    #+#             */
+/*   Updated: 2023/04/25 12:26:23 by oroy             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_putstr_rtn_fd(char *s, int fd)
+int	ft_add(int write_rtn, int nbr)
 {
-	if (!s)
-		return (0);
-	return (write (fd, s, ft_strlen(s)));
+	if (write_rtn == -1)
+		return (-1);
+	else
+		return (write_rtn + nbr);
 }
