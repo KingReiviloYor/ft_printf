@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oroy <oroy@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: olivierroy <olivierroy@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 15:32:25 by oroy              #+#    #+#             */
-/*   Updated: 2023/04/25 12:54:20 by oroy             ###   ########.fr       */
+/*   Updated: 2024/12/08 23:07:50 by olivierroy       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,9 @@
 
 # include <unistd.h>
 
-int		ft_add(int write_rtn, int nbr);
-int		ft_putchar_rtn_fd(char c, int fd);
-int		ft_puthex_rtn_fd(unsigned long n, char c, int fd);
-int		ft_putnbr_rtn_fd(long n, int fd);
-int		ft_putstr_rtn_fd(char *s, int fd);
+int		ft_abs(int n);
+int		ft_putchar_fd(char c, int fd);
+int		ft_putstr_fd(char *s, int fd);
 size_t	ft_strlen(const char *s);
 
 #endif

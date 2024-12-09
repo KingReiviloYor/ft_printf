@@ -1,18 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar_rtn_fd.c                                :+:      :+:    :+:   */
+/*   ft_abs.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oroy <oroy@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: olivierroy <olivierroy@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/22 14:14:44 by oroy              #+#    #+#             */
-/*   Updated: 2023/04/17 17:29:40 by oroy             ###   ########.fr       */
+/*   Created: 2023/06/15 18:55:17 by oroy              #+#    #+#             */
+/*   Updated: 2024/12/08 23:06:51 by olivierroy       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_putchar_rtn_fd(char c, int fd)
+int	ft_abs(int n)
 {
-	return (write (fd, &c, 1));
+	if (n < 0)
+		n *= -1;
+	return (n);
 }

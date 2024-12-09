@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: oroy <oroy@student.42.fr>                  +#+  +:+       +#+         #
+#    By: olivierroy <olivierroy@student.42.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/24 20:20:29 by oroy              #+#    #+#              #
-#    Updated: 2023/04/25 12:19:10 by oroy             ###   ########.fr        #
+#    Updated: 2024/12/08 23:13:19 by olivierroy       ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,12 +18,11 @@ CFLAGS = -Wall -Werror -Wextra
 LIBFT_DIR = libft/
 
 SRC =	ft_printf.c \
-		$(LIBFT_DIR)ft_add.c \
-		$(LIBFT_DIR)ft_putchar_rtn_fd.c \
-		$(LIBFT_DIR)ft_puthex_rtn_fd.c \
-		$(LIBFT_DIR)ft_putnbr_rtn_fd.c \
-		$(LIBFT_DIR)ft_putstr_rtn_fd.c \
-		$(LIBFT_DIR)ft_strlen.c
+		ft_printf_types.c \
+		$(LIBFT_DIR)ft_abs.c \
+		$(LIBFT_DIR)ft_putchar_fd.c \
+		$(LIBFT_DIR)ft_putstr_fd.c \
+		$(LIBFT_DIR)ft_strlen.c \
 
 OBJ = $(SRC:.c=.o)
 

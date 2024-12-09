@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oroy <oroy@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: olivierroy <olivierroy@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/20 14:53:17 by oroy              #+#    #+#             */
-/*   Updated: 2023/04/24 17:56:20 by oroy             ###   ########.fr       */
+/*   Updated: 2024/12/08 23:11:25 by olivierroy       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	main(void)
 	printf ("| %i\n", i);
 	i = printf ("<%s>", "scooby");
 	printf ("| %i\n", i);
-	i = printf ("< NULL %s NULL >", NULL);
+	i = printf ("< NULL %p NULL >", NULL);
 	printf ("| %i\n", i);
 	i = printf ("<%p>", (void *)-1);
 	printf ("| %i\n", i);
@@ -45,7 +45,7 @@ int	main(void)
 	ft_printf ("| %i\n", i);
 	i = ft_printf ("<%s>", "scooby");
 	ft_printf ("| %i\n", i);
-	i = ft_printf ("< NULL %s NULL >", NULL);
+	i = ft_printf ("< NULL %p NULL >", NULL);
 	ft_printf ("| %i\n", i);
 	i = ft_printf ("<%p>", (void *)-1);
 	ft_printf ("| %i\n", i);
